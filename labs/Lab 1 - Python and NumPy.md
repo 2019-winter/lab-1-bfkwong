@@ -14,7 +14,9 @@ jupyter:
 ---
 
 # Name(s)
-**PUT YOUR FULL NAME(S) HERE**
+**BRYAN KWONG** 
+
+**TIANA TON NU**
 
 
 **Instructions:** This is an individual assignment, but you may discuss your code with your neighbors.
@@ -46,46 +48,71 @@ For the following exercises please read the Python appendix in the Marsland text
 ## Exercise 1
 
 ```python
+import numpy as np 
+import pandas as pd
+
 # YOUR SOLUTION HERE
-#a=1000
-print('this is my answer',a+1) 
+a = np.full((6,4), 2)
 ```
 
 ## Exercise 2
 
 ```python
 # YOUR SOLUTION HERE
-a=2000
+b = (np.eye(6, 4) * 2) + 1
 ```
 
 ## Exercise 3
 
 ```python
 # YOUR SOLUTION HERE
+a * b
 ```
 
 ## Exercise 4
 
 ```python
 # YOUR SOLUTION HERE
+a_d_b = np.dot(a.transpose(),b)
+b_d_a = np.dot(a,b.transpose())
+
+print(a_d_b.shape, b_d_a.shape)
 ```
 
 ## Exercise 5
 
 ```python
 # YOUR SOLUTION HERE
+def some_function(arg): 
+    print(arg) 
+    
+some_function(1)
 ```
 
 ## Exercise 6
 
 ```python
 # YOUR SOLUTION HERE
+np_random = np.random.rand(10)
+(np_random.sum(), np_random.mean())
 ```
 
 ## Exercise 7
 
 ```python
 # YOUR SOLUTION HERE
+np_ary = np.array([1,2,3,4,1,1,2,5,1,2,4])
+
+
+def find_ones(np_a): 
+    count = 0
+    for x in np_a: 
+        if x == 1: 
+            count += 1
+    return count 
+
+find_ones(np_ary)
+np_ary[np.where(np_ary == 1)].size
 ```
 
 ## Excercises 8-???
@@ -97,6 +124,7 @@ Repeat exercise A.1 from Marsland, but create a Pandas DataFrame instead of a Nu
 
 ```python
 # YOUR SOLUTION HERE
+pd_a = pd.DataFrame(a)
 ```
 
 ## Exercise 9
@@ -104,6 +132,7 @@ Repeat exercise A.2 using a DataFrame instead.
 
 ```python
 # YOUR SOLUTION HERE
+pd_b = pd.DataFrame(b)
 ```
 
 ## Exercise 10
@@ -111,6 +140,7 @@ Repeat exercise A.3 using DataFrames instead.
 
 ```python
 # YOUR SOLUTION HERE
+pd_a * pd_b
 ```
 
 ## Exercise 11
@@ -118,6 +148,7 @@ Repeat exercise A.7 using a dataframe.
 
 ```python
 # YOUR SOLUTION HERE
+pd_b[pd_b != 1].isna().sum().sum()
 ```
 
 ## Exercises 12-14
@@ -138,6 +169,7 @@ How do you select the ``name`` column without using .iloc?
 
 ```python
 ## YOUR SOLUTION HERE
+titanic_df[["name"]]
 ```
 
 ## Exercise 13
@@ -145,7 +177,8 @@ After setting the index to ``sex``, how do you select all passengers that are ``
 
 ```python
 ## YOUR SOLUTION HERE
-titanic_df.set_index('sex',inplace=True)
+titanic_df.set_index('sex', inplace=True)
+titanic_df.loc[["female"]]
 ```
 
 ## Exercise 14
@@ -153,6 +186,7 @@ How do you reset the index?
 
 ```python
 ## YOUR SOLUTION HERE
+titanic_df.reset_index()
 ```
 
 ```python
